@@ -1,0 +1,63 @@
+Along with false, nil is one of two non-true values in Ruby. (Every other object is regarded as "truthy," meaning that if you were to type if 2 or if "bacon", the code in that if statement would be run.)
+
+.select{|k,v| v > 3}
+
+<condition> ? <result if condition is true> : <result if condition is false>
+
+p.65
+
+||= is a sneaky expression that takes advantage of Ruby's natural laziness -- it basically expands to thing_a || thing_a = thing_b. So if thing_a hasn't been set to anything, it becomes thing_b, otherwise it keeps its original value. It's a bit complex and you don't need to know exactly why it works, but we'll go over it for completeness:
+
+arr[i], arr[j] = arr[j], arr[i]
+
+    def default_grid
+      Array.new(3) { Array.new(3) { Cell.new } }
+    end
+
+@current_player, @other_player = players.shuffle
+
+private tells Ruby that any methods declared in this class from there on should be kept private. This means that only code within the object’s methods can access those private methods, whereas code outside of the class cannot. For example, this code no longer works:
+
+.flatten
+
+h = {:a => 1, :b => 2.2}
+h.each_with_index do |(k, v), i|
+  p k, v, i
+end
+
+http://bitzesty.com/blog/2013/10/ruby-development-hashfetch-method/
+
+:nodoc: Modifier
+By default, RDoc will attempt to use anything it considers relevant to build up its documenta- tion. Sometimes, however, you’d rather RDoc ignore certain modules, classes, or methods, particularly if you haven’t documented them yet. To make RDoc ignore something in this way, simply follow the module, class, or method definition with a comment of :nodoc:, like so:
+# This is a class that does nothing
+class MyClass
+  # This method is documented
+  def some_method
+  end
+  def secret_method #:nodoc:
+end end
+In this instance, RDoc will ignore secret_method.
+Download at Boykma.Com
+￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼182 Chapter 8 ■﻿ DOCUMeNtatION, errOr haNDLING, DeBUGGING, aND teStING
+:nodoc: only operates directly upon the elements upon which it is placed. If you want :nodoc: to apply to the current element and all those beneath it (all methods within a class, for example), do this:
+# This is a class that does nothing
+class MyClass #:nodoc: all
+  # This method is documented (or is it?)
+  def some_method
+  end
+  def secret_method
+end end
+Now none of MyClass is documented by RDoc.
+
+
+
+In Ruby, exceptions are packaged into objects of class Exception or one of Exception’s many subclasses. Ruby has about 30 main predefined exception classes that deal with different
+types of errors, such as NoMemoryError, RuntimeError, SecurityError, ZeroDivisionError, and NoMethodError.
+
+
+A class can be thought of as a factory that makes objects.
+
+The Enumerable module is included in the Array class and the Kernel module is mixed-in to the Object class (mixed-in is another way of saying that a module is included in a class).
+
+
+What is binding? ERB?
