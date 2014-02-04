@@ -27,6 +27,8 @@ end
 
 http://bitzesty.com/blog/2013/10/ruby-development-hashfetch-method/
 
+http://www.robertsosinski.com/2008/12/21/understanding-ruby-blocks-procs-and-lambdas/
+
 :nodoc: Modifier
 By default, RDoc will attempt to use anything it considers relevant to build up its documenta- tion. Sometimes, however, you’d rather RDoc ignore certain modules, classes, or methods, particularly if you haven’t documented them yet. To make RDoc ignore something in this way, simply follow the module, class, or method definition with a comment of :nodoc:, like so:
 # This is a class that does nothing
