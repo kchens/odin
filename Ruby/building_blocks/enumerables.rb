@@ -72,18 +72,22 @@ module Enumerable
     c
   end
 
-  def my_map(&block) #to take Procs, delete '&'
+  def my_map(block=nil) 
     ret = []
     self.my_each do |item|
-      ret << block.call(item)
+      if block_given?
+        ret << yield(item)
+      else 
+        ret << block.call(item)
+      end
     end
     ret
   end
 
-  def my_inject(accumulator = Object.new)
+  def my_inject(accumulator = nil)
     self.each do |item|
-      if accumulator.class == Object
-        accumulator = elem
+      if accumulator == nil
+        accumulator = item
       else 
         accumulator = yield(accumulator, item)
       end

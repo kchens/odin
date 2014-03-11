@@ -51,7 +51,15 @@ end
 caesar_cipher("What a string!", 5)
 
 
-#"a"[0].ord = 97
+1. split the string into chars
+2. if char is a letter, convert letter to number (uppercase/lowercase)
+	3. shift the letter 
+	4. convert back to a number
+	5. put it back to array
+6. if char not letter, add back to array
+7. 
+
+#"a".ord = 97
 #b = 98
 #z = 122
 #
