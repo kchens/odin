@@ -1,0 +1,13 @@
+User.create(username: "first11")
+Post.create(title: "first11 find ferrets", user_id: 1)
+User.first.posts
+u1 = User.first
+p1 = u1.posts
+
+u2 = User.create(username: "second")
+Comment.create(note: "second says shit", user_id: 2, post_id: 1)
+
+u2 = User.find(2)
+c1 = u2.comments.first
+c1.user
+p1 = Post.first
