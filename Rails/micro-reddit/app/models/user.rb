@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-	validates :username, length: { minimum: 10 }
-	has_many :posts, foreign_key: 'posts_id'
+	validates :username, presence: true, length: { minimum: 6, maximum: 40}
+	has_many :posts
+	has_many :comments
 end

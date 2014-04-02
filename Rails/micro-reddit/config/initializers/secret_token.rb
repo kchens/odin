@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MicroReddit::Application.config.secret_key_base = '12b87921aa8dc28bca1d8aeea46064eca0bfb0c3284359a9edc2d786fb943d91c0647c4f6eea704649606fd187ed8492ad44b146dfc61931634cb32c0fd4cce1'
+MicroReddit2::Application.config.secret_key_base = 'c72c82e23d064f4906ba38aab5d8dc3242ab2b3e18b53eaf58e343490daddc3baa0ca76c036c77878d82709afd0acd44c3c895abac1071bafc7c2239cc707a7a'

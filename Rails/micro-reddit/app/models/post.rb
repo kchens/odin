@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	
-	validates :comments, length: { minimum: 20, maximum: 30 }
-	belongs_to :user, foreign_key: "user_id"
+  belongs_to :user
+  has_many :comments
+  validates :title, presence: true, length: { minimum: 5, maximum: 30 }
 end
