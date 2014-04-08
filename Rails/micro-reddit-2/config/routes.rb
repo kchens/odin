@@ -1,23 +1,5 @@
-RestTester::Application.routes.draw do
-  # resources :users
-
-  root 'users#index'
-  
-  get '/new' => 'users#new'  
-  post '/'   => 'users#create'
-  get '/show' => 'users#show'
-  get '/edit' => 'users#edit'
-  put '/update'      => 'users#update'
-  delete '/destroy'   => 'users#destroy'
-
-
-  # match '/:id',    to: "users#show",             via: 'get'
-  # match '/new',     to: "users#new",              via: 'get'
-  # post '/' => "users#create"
-  # match '/edit',    to: "users#edit",             via: 'get'
-  # match '/update',  to: "users#update",           via: 'put'
-  # match '/delete',     to: "users#destroy",              via: 'delete'
-  # # The priority is based upon order of creation: first created -> highest priority.
+MicroReddit2::Application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

@@ -7,4 +7,4 @@ require 'rest-client'
 # puts RestClient.get('localhost:3000/show')
 # puts RestClient.get('localhost:3000/new')
 # puts RestClient.get('localhost:3000/edit')
-puts RestClient.post('localhost:3000',  "YOLO")
+# puts RestClient.post('http://localhost:3000', '')
