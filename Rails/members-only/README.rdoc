@@ -1,0 +1,5 @@
+The Odin Project - Authentication Project
+
+"Members-only" lets you gossip about non-members. How do you become a member? Well, how does one become a Freemason?
+
+see more here: http://www.theodinproject.com/ruby-on-rails/authentication
