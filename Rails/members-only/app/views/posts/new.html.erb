@@ -1,0 +1,11 @@
+This is Post's new.html.erb
+
+<%= form_for(:post) do |f| %>
+	
+	<%= f.text_area :note, value: "Say something" %><br>
+
+	<%= f.submit "Post" %>
+	
+<% end %>
+
+<!-- Submission still needs to create and render posts -->

@@ -2,4 +2,8 @@ The Odin Project - Authentication Project
 
 "Members-only" lets you gossip about non-members. How do you become a member? Well, how does one become a Freemason?
 
+Instructions:
+Use CLI -> "rails console" to create a user and its post.
+
+
 see more here: http://www.theodinproject.com/ruby-on-rails/authentication
