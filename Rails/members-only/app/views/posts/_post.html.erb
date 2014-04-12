@@ -1,7 +1,10 @@
 <!-- This partial automatically iterates through Post.all -->
 
 <li>
-  <span class="content"><%= post.note %></span>
+  <span class="content"><%= post.note %></span><br>
+  <% if signed_in? %>
+  	<span class="post_author">by <%= User.find(post.user_id).name %>.</span>
+  <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>

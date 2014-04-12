@@ -1,6 +1,8 @@
 You are signed in.<br>
 
 <!-- How to show user posts on this page instead of creating this link? -->
-<%= link_to "User posts", new_post_path %><br>
+<%= link_to "Create new post", new_post_path %><br>
+
+<%= link_to "All posts", posts_path %><br>
 
 <%= link_to "Sign out", signout_path, method: "delete" %><br>

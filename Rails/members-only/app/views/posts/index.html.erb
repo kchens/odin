@@ -1,9 +1,13 @@
 <!-- renders _post.html.erb to display each post.content -->
-<%= render @posts %> 
 
+This is the index.html.erb
+<br>
+<%= render @posts %>
 
 <!-- Now add logic in your Index view to display the author's name, but only if a user is signed in. -->
 
+<br>
 <% if signed_in? %>
-	<%= current_user.name %>
+	You are signed in as <%= current_user.name %>
 <% end %>
+<br>
