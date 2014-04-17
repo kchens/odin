@@ -1,7 +1,10 @@
 PrivateEvents::Application.routes.draw do
-  resources :users, only: [:new, :create, :show]
+
+  resources :users, only: [:index, :new, :create, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :events, only: [:index, :new, :create, :show] 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

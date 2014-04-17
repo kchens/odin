@@ -3,6 +3,16 @@ This is PrivateEvent-User's show.html.erb
 You've been created.
 
 <br>
-<% if signed_in? %>
-	You're signed in as "<%= current_user.name %>"
+<% if signed_in? && @user == current_user %> 
+	You're signed in as "<%= @user.name %>"
+<% end %>
+
+<br>
+Click <%= link_to "here", new_event_path %> to create a new event.
+
+<br>
+<% if @user.events.any? %>
+	Yes.
+<% else %>
+	No events.
 <% end %>

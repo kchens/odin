@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	
+	has_many :events, foreign_key: "creator_id" #instead of user_id, need to set own index
+	# has_many :attendees, through: :events, source: :attendees
 	# validates :name, presence: true
 	# validates :email, presence: true
 	has_secure_password

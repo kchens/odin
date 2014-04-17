@@ -1,0 +1,12 @@
+<h1>Events#new</h1>
+
+<!-- url: will send all form data to the action specified -->
+
+<%= form_for(:event, url: {action: "create"}) do |f| %> 
+	
+	<%= f.label "Description" %>
+	<%= f.text_area :description, value: "Write here" %><br>
+
+	<%= f.submit "Create event" %>
+	
+<% end %>
