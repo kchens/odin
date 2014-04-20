@@ -1,4 +1,10 @@
 <h1>Events#show</h1>
 
-<%= @event.description %> <br>
-Created by <%= @event.creator.name %>.
+1. <%= @event.description %> <br>
+2. Created by <%= @event.creator.name %>.<br>
+
+3. Attendees:<br>
+	<%= @event.attendees.each do |a| %>
+		<%= a.name %>	
+		
+	<% end %>

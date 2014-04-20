@@ -1,18 +1,31 @@
 This is PrivateEvent-User's show.html.erb
-
-You've been created.
-
 <br>
-<% if signed_in? && @user == current_user %> 
-	You're signed in as "<%= @user.name %>"
-<% end %>
-
+	You've been created.
 <br>
-Click <%= link_to "here", new_event_path %> to create a new event.
-
 <br>
-<% if @user.events.any? %>
-	Yes.
-<% else %>
-	No events.
-<% end %>
+	<% if signed_in? %> 
+		You're signed in as "<%= @user.name %>"
+	<% end %>
+<br>
+<br>
+	Click <%= link_to "here", new_event_path %> to create a new event.
+<br>
+<br>
+ALL EVENTS
+<br>
+	<% if @user.attended_events.any? %>
+		<%= @user.attended_events.each do |a| %>
+			<%= a.description %>
+		<% end %>	
+	<% else %>
+		No events.
+	<% end %>
+<br>
+<br>
+	PREVOUSLY ATTENDED EVENTS:
+	<%= render @prev_events %>
+<br>
+<br>
+	UPCOMING EVENTS
+	<%= render @upcoming_events %>
+<br>

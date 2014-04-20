@@ -9,3 +9,21 @@ A user can create events. A user can attend many events. An event can be attende
 
 _____________________
 http://www.theodinproject.com/ruby-on-rails/associations
+
+_____________________
+Sample Users, Events, EventRelationships
+
+@user1 = User.create(name: "yolo", password: "warwart", password_confirmation: "warwart")
+@user2 = User.create(name: "zelda", password: "warwart", password_confirmation: "warwart")
+
+
+@breakfast = Event.create(description: 'breakfast', day: Date.new, creator_id: 1)
+@lunch = Event.create(description: 'lunch', day: Date.new + 5, creator_id: 1)
+@dinner = Event.create(description: 'dinner', day: Date.new + 10, creator_id: 1)
+
+
+
+@er1 = EventRelationship.create(attended_event_id: 2, attendee_id: 2)
+
+@er2 = EventRelationship.create(attended_event_id: 1, attendee_id: 1)
+--Set EventRelationship to 'lunch'
