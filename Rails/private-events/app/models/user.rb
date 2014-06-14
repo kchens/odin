@@ -32,9 +32,9 @@ class User < ActiveRecord::Base
     attended_events.where('day < ? ', Date.new + 5)
   end
 
- #  def upcoming
- #    attended_events.where('day >= ? ', Date.new + 5)
- #  end
+  def upcoming
+    attended_events.where('day >= ? ', Date.new + 5)
+  end
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_id: MyString
+  to_id: MyString
+  datetime: 
+  integer: 
+
+two:
+  from_id: MyString
+  to_id: MyString
+  datetime: 
+  integer: 

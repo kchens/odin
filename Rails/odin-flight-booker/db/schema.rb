@@ -11,24 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410040354) do
+ActiveRecord::Schema.define(version: 20140614013721) do
 
-  create_table "posts", force: true do |t|
-    t.text     "note"
+  create_table "airports", force: true do |t|
+    t.string   "codename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "status"
+  create_table "flights", force: true do |t|
+    t.integer  "from_airport_id"
+    t.integer  "to_airport_id"
+    t.datetime "departure_date"
+    t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token"
   end
-
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
