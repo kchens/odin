@@ -1,0 +1,2649 @@
+  [1m[36m (26.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAirports (20140614012858)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614012858"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (75.2ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 01:29:30 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 01:29:30 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mAirport Load (0.5ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[36mAirport Load (1.8ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 01:35:10 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 01:35:10 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "airports"
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" varchar(255), "to_id" varchar(255), "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mAirport Load (0.1ms)[0m  SELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:08:30 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:08:30 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:08:38 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:08:38 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:09:26 UTC +00:00], ["duration", 10], ["from_id", "SFO"], ["to_id", "WAS"], ["updated_at", Sat, 14 Jun 2014 02:09:26 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:09:49 UTC +00:00], ["duration", 5], ["from_id", "WAS"], ["to_id", "SFO"], ["updated_at", Sat, 14 Jun 2014 02:09:49 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" varchar(255), "to_id" varchar(255), "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:09:55 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" integer, "to_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:10:41 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:41 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:10:48 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:48 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" integer, "to_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:10:53 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[36mAirport Load (1.6ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[35mSQL (2.1ms)[0m  DELETE FROM "airports"
+  [1m[36mSQL (1.7ms)[0m  [1mDELETE FROM "flights"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:11:17 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:11:17 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:11:22 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:11:22 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:11:35 UTC +00:00], ["duration", 5], ["from_id", 5], ["to_id", 6], ["updated_at", Sat, 14 Jun 2014 02:11:35 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:11:59 UTC +00:00], ["duration", 10], ["from_id", 6], ["to_id", 5], ["updated_at", Sat, 14 Jun 2014 02:11:59 UTC +00:00]]
+  [1m[36m (68.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.4ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" integer, "to_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:14:04 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[36mAirport Load (1.3ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_id" integer, "to_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (26.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:22:51 UTC +00:00], ["duration", 10], ["from_id", 1], ["to_id", 2], ["updated_at", Sat, 14 Jun 2014 02:22:51 UTC +00:00]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_id", "to_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:23:03 UTC +00:00], ["duration", 5], ["from_id", 3], ["to_id", 4], ["updated_at", Sat, 14 Jun 2014 02:23:03 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."from_id" = ?  [["from_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE (3) LIMIT 1[0m
+  [1m[35mFlight Load (0.1ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."from_id" = ?  [["from_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE (2) LIMIT 1[0m
+  [1m[35mFlight Load (0.1ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."from_id" = ?  [["from_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."to_id" = ?  [["to_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE (2) LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."to_id" = ?  [["to_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE (3) LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."to_id" = ?  [["to_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE (4) LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."to_id" = ?  [["to_id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mFlight Load (1.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[36m (29.0ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:28:37 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "flights"
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (2.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[35m (119.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 02:29:13 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mFlight Load (1.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."from_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: flights.from_id: SELECT "flights".* FROM "flights"  WHERE "flights"."from_id" = ?
+  [1m[36mAirport Load (0.3ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 02:34:37 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[36mFlight Load (1.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[35m (6.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 02:36:57 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mFlight Load (1.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (19.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (8.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 02:46:43 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateAirports (20140614012858)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "airports"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614012858'[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAirports (20140614012858)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614012858"]]
+  [1m[36m (379.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 02:48:45 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mAirport Load (0.1ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateAirports (20140614012858)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "airports"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614012858'[0m
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAirports (20140614012858)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614012858"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mAirport Load (1.4ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (32.2ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 03:04:32 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 03:04:32 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 03:04:33 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mAirport Load (1.3ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mAirport Load (1.9ms)[0m  [1mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? ORDER BY "airports"."id" ASC LIMIT 1[0m  [["id", 1]]
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:30:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (39.6ms)
+Completed 500 Internal Server Error in 112ms
+
+ActionView::Template::Error (undefined method `flights_path' for #<#<Class:0x0000010175f268>:0x0000010175e5e8>):
+    1: <h1>Flights#index</h1>
+    2: <p>Find me in app/views/flights/index.html.erb</p>
+    3: 
+    4: <% form_for(@search, method: :get) do |f| %>
+    5:   <%= f.label :from_airport_id %>
+    6:   <%= f.text_field :from_airport_id, value: 'From' %>
+    7: <% end %>
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2159836500'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:30:45 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined local variable or method `search_path' for #<#<Class:0x000001016dc0e8>:0x000001016df478>):
+    1: <h1>Flights#index</h1>
+    2: <p>Find me in app/views/flights/index.html.erb</p>
+    3: 
+    4: <% form_for(search_path, method: :get) do |f| %>
+    5:   <%= f.label :from_airport_id %>
+    6:   <%= f.text_field :from_airport_id, value: 'From' %>
+    7: <% end %>
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2159471820'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:39:07 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1..3)):
+    2: <p>Find me in app/views/flights/index.html.erb</p>
+    3: 
+    4: <% form_tag(root_path) do %>
+    5:   <%= text_field_tag  %>
+    6:   <%= submit_tag "Search" %>
+    7: 
+    8: <!--   <%= f.label :from_airport_id %>
+  app/views/flights/index.html.erb:5:in `block in _app_views_flights_index_html_erb__3806979612026884257_2189811120'
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2189811120'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:39:09 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1..3)):
+    2: <p>Find me in app/views/flights/index.html.erb</p>
+    3: 
+    4: <% form_tag(root_path) do %>
+    5:   <%= text_field_tag  %>
+    6:   <%= submit_tag "Search" %>
+    7: 
+    8: <!--   <%= f.label :from_airport_id %>
+  app/views/flights/index.html.erb:5:in `block in _app_views_flights_index_html_erb__3806979612026884257_2189811120'
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2189811120'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:40:36 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1..3)):
+    2: <p>Find me in app/views/flights/index.html.erb</p>
+    3: 
+    4: <% form_tag(root_path, :method => "get") do %>
+    5:   <%= text_field_tag  %>
+    6:   <%= submit_tag "Search" %>
+    7: 
+    8: <!--   <%= f.label :from_airport_id %>
+  app/views/flights/index.html.erb:5:in `block in _app_views_flights_index_html_erb__3806979612026884257_2158378500'
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2158378500'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:41:41 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x000001016dc0e8>:0x00000101764c18>):
+     5:   <%= text_field_tag :search  %>
+     6:   <%= submit_tag "Search" %>
+     7: 
+     8: <!--   <%= f.label :from_airport_id %>
+     9:   <%= f.text_field :from_airport_id, value: 'From' %> -->
+    10: <% end %>
+    11: 
+  app/views/flights/index.html.erb:8:in `block in _app_views_flights_index_html_erb__3806979612026884257_2159770740'
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2159770740'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:41:54 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 1075ms (Views: 1074.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-13 23:41:55 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-13 23:42:30 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+Processing by FlightsController#index as HTML
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. (called from search at /Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/models/flight.rb:9)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from find at /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-deprecated_finders-1.0.3/lib/active_record/deprecated_finders/relation.rb:120)
+  [1m[35mFlight Load (0.4ms)[0m  SELECT "flights".* FROM "flights"
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 5.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-13 23:46:55 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+Processing by FlightsController#index as HTML
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. (called from search at /Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/models/flight.rb:9)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from find at /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-deprecated_finders-1.0.3/lib/active_record/deprecated_finders/relation.rb:120)
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:46 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+Processing by FlightsController#index as HTML
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. (called from search at /Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/models/flight.rb:9)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from find at /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-deprecated_finders-1.0.3/lib/active_record/deprecated_finders/relation.rb:120)
+  [1m[35mFlight Load (0.1ms)[0m  SELECT "flights".* FROM "flights"
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-13 23:53:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateFlights (20140614013721)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "flights"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140614013721'[0m
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlights (20140614013721)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140614013721"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:08:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+SyntaxError (/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/models/flight.rb:5: syntax error, unexpected '[', expecting ')'
+  def search(params[:query])
+                    ^
+/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/models/flight.rb:15: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:22:15 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `search' for #<Class:0x00000101e50900>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:22:34 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `search' for #<Class:0x000001014ae6b8>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:23:05 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `search' for #<Class:0x00000101785738>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:23:07 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `search' for #<Class:0x00000101785738>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:23:35 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `search' for #<Class:0x0000010522fa28>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 77ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:15 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:24:19 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/models/flight.rb:6:in `search'
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:24:27 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/models/flight.rb:6:in `search'
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:24:51 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:24:59 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (undefined local variable or method `params' for #<Class:0x000001052a2e10>):
+  app/models/flight.rb:6:in `search'
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:08 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:12 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 47ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:25:23 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:43:49 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 01:48:03 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  [1m[35mFlight Load (0.7ms)[0m  SELECT "flights".* FROM "flights" WHERE (from_airport_id = NULL AND to_airport_id = NULL AND departure_date >= NULL)
+  Rendered flights/index.html.erb within layouts/application (35.0ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error (undefined method `dropdown_tag' for #<#<Class:0x00000101d93df0>:0x00000105370978>):
+    4: <%= form_tag(root_path, :method => "get") do %>
+    5:   From: <%= select_tag :from_airport, params[:from_airport] %>
+    6:   To: <%= select_tag :to_airport, params[:to_airport] %>
+    7:   Departure Date: <%= dropdown_tag :departure_date, params[:departure_date] %>
+    8: 
+    9:   <%= submit_tag "Search", :name => nil %>
+   10: 
+  app/views/flights/index.html.erb:7:in `block in _app_views_flights_index_html_erb__3806979612026884257_2191260540'
+  app/views/flights/index.html.erb:4:in `_app_views_flights_index_html_erb__3806979612026884257_2191260540'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.2ms)
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:12 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 01:48:22 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 01:48:23 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 02:36:55 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 37ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 02:59:58 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:08 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&search=SFO" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"SFO"}
+  Rendered flights/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:14 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:00:18 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:19 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:00:31 -0400
+
+SyntaxError (/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/controllers/flights_controller.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+    @num_passengers = (1..4)map { |x| x }
+                               ^):
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__759520657276572237__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+Processing by FlightsController#index as HTML
+  Rendered flights/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 03:00:34 -0400
+  [1m[36mAirport Load (15.2ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mAirport Load (0.4ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:13:34 -0400
+Processing by FlightsController#index as HTML
+  [1m[36mAirport Load (0.3ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  Rendered flights/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 16ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 03:13:35 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:15:14 -0400
+
+SyntaxError (/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/controllers/flights_controller.rb:7: syntax error, unexpected keyword_end):
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__759520657276572237__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 03:25:30 -0400
+
+SyntaxError (/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/controllers/flights_controller.rb:7: syntax error, unexpected keyword_end):
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__759520657276572237__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mAirport Load (0.3ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mAirport Load (0.6ms)[0m  SELECT "airports".* FROM "airports" WHERE (2) LIMIT 1
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (25.0ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 08:05:13 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (33.2ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.3ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 08:05:19 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mAirport Load (0.1ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.4ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (26.4ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:08:29 UTC +00:00], ["departure_date", Sat, 11 Oct 2014 00:00:00 UTC +00:00], ["duration", 3], ["from_airport_id", 4], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:08:29 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" WHERE (3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:08:51 UTC +00:00], ["departure_date", Sat, 11 Oct 2014 00:00:00 UTC +00:00], ["duration", 3], ["from_airport_id", 4], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:08:51 UTC +00:00]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE (4) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:10:20 UTC +00:00], ["departure_date", Sat, 11 Oct 2014 10:00:00 UTC +00:00], ["duration", 3], ["from_airport_id", 4], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:10:20 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE (5) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:11:08 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:11:08 UTC +00:00], ["duration", 3], ["from_airport_id", 4], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:11:08 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE (6) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:12:33 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:12:33 UTC +00:00], ["duration", 3], ["from_airport_id", 4], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:12:33 UTC +00:00]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" WHERE (7) LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (7) LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE (7) LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (7) LIMIT 1[0m
+  [1m[35mFlight Load (0.3ms)[0m  SELECT "flights".* FROM "flights" WHERE (7) LIMIT 1
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights" WHERE (7) LIMIT 1
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (7) LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 04:15:30 -0400
+
+SyntaxError (/Users/MightyMouse/Desktop/Coding/Odin/Rails/odin-flight-booker/app/controllers/flights_controller.rb:7: syntax error, unexpected keyword_end):
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `const_get'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:226:in `block in constantize'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.3) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.3) lib/active_support/dependencies.rb:566:in `constantize'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.3) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.3) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.3) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:373:in `_run__759520657276572237__call__callbacks'
+  activesupport (4.0.3) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MightyMouse/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (28.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.8ms)
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (2.3ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 08:15:52 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:16:49 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 08:16:49 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:17:23 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:17:23 UTC +00:00], ["duration", 5], ["from_airport_id", 4], ["to_airport_id", 1], ["updated_at", Sat, 14 Jun 2014 08:17:23 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:17:51 UTC +00:00], ["departure_date", Sat, 01 Jan 2000 00:00:00 UTC +00:00], ["duration", 5], ["from_airport_id", 4], ["to_airport_id", 1], ["updated_at", Sat, 14 Jun 2014 08:17:51 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" WHERE (4) LIMIT 1[0m
+  [1m[36mFlight Load (1.3ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  [1m[35mFlight Load (0.4ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (0.4ms)[0m  SELECT "flights".* FROM "flights"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 04:33:03 -0400
+Processing by FlightsController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `search' for #<Class:0x000001015840d8>):
+  app/controllers/flights_controller.rb:3:in `index'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+Processing by FlightsController#index as HTML
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 7.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 04:33:11 -0400
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:35:21 UTC +00:00], ["duration", 10], ["from_airport_id", 2], ["to_airport_id", 1], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00], ["departure_date", Sat, 14 Jun 2014 08:35:21 UTC +00:00], ["duration", 5], ["from_airport_id", 4], ["to_airport_id", 3], ["updated_at", Sat, 14 Jun 2014 08:35:18 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+Processing by FlightsController#index as HTML
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 21ms (Views: 5.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:21 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=BWI&num_passengers=2&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"BWI", "num_passengers"=>"2", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.8ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-14 04:35:27 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-15 23:35:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FlightsController#index as HTML
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.3ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 483ms (Views: 376.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-15 23:35:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-15 23:35:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-15 23:35:28 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-15 23:35:28 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-15 23:35:28 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-15 23:35:29 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-15 23:35:29 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+Processing by FlightsController#index as HTML
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 7.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:11:55 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:09 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:12:10 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:33:36 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 79ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:33:37 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 6.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:51 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.6ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:39:53 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=BWI&to_airport=SFO&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:40:03 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"BWI", "to_airport"=>"SFO", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:03 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:04 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:50 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:51 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:40:54 -0400
+  [1m[36m (2.7ms)[0m  [1mDROP TABLE "airports"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mDROP TABLE "flights"[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure_date" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mSQL (2.3ms)[0m  [1mDELETE FROM "airports"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (44.9ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "SFO"], ["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "WAS"], ["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["codename", "BWI"], ["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "airports" ("codename", "created_at", "updated_at") VALUES (?, ?, ?)  [["codename", "PVD"], ["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "flights"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["departure_date", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["duration", 10], ["from_airport_id", 1], ["to_airport_id", 2], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["departure_date", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["duration", 5], ["from_airport_id", 3], ["to_airport_id", 4], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["departure_date", Mon, 16 Jun 2014 06:41:39 UTC +00:00], ["duration", 10], ["from_airport_id", 2], ["to_airport_id", 1], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flights" ("created_at", "departure_date", "duration", "from_airport_id", "to_airport_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00], ["departure_date", Mon, 16 Jun 2014 06:41:39 UTC +00:00], ["duration", 5], ["from_airport_id", 4], ["to_airport_id", 3], ["updated_at", Mon, 16 Jun 2014 06:41:36 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mAirport Load (1.2ms)[0m  [1mSELECT "airports".* FROM "airports"[0m
+  [1m[35mFlight Load (0.2ms)[0m  SELECT "flights".* FROM "flights"
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.4ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 25ms (Views: 5.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:49 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:41:53 -0400
+  [1m[36mAirport Load (0.3ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+  [1m[35mFlight Load (1.8ms)[0m  SELECT "flights".* FROM "flights" WHERE "flights"."from_airport_id" = ?  [["from_airport_id", 1]]
+  [1m[36mAirport Load (0.2ms)[0m  [1mSELECT "airports".* FROM "airports" ORDER BY "airports"."id" ASC LIMIT 1[0m
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:56:45 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 61ms (Views: 43.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:46 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:56:48 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:57:12 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (75.0ms)
+Completed 500 Internal Server Error in 80ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= @search.each do |x| %>
+    15:   <%= puts x %>
+    16: <% end %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158838220'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.1ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 02:57:32 -0400
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:57:36 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2174004920'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:57:49 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2165234640'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:58:25 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.4ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158217760'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.8ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:58:27 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.1ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158217760'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.0ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F16%2F2014" for 127.0.0.1 at 2014-06-16 02:58:31 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/16/2014"}
+  [1m[35mAirport Load (0.2ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158217760'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.2ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:58:45 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158217760'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.3ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 02:58:48 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.5ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `any?' for nil:NilClass):
+    11: 
+    12: <% end %>
+    13: 
+    14: <%= puts "hello" if @search.any? %>
+  app/views/flights/index.html.erb:14:in `_app_views_flights_index_html_erb___4478620101525576989_2158217760'
+
+
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/MightyMouse/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/?utf8=%E2%9C%93&from_airport=SFO&to_airport=WAS&num_passengers=1&departure_date=06%2F14%2F2014" for 127.0.0.1 at 2014-06-16 03:10:00 -0400
+Processing by FlightsController#index as HTML
+  Parameters: {"utf8"=>"✓", "from_airport"=>"SFO", "to_airport"=>"WAS", "num_passengers"=>"1", "departure_date"=>"06/14/2014"}
+  [1m[35mAirport Load (0.3ms)[0m  SELECT "airports".* FROM "airports"
+  [1m[36mFlight Load (0.2ms)[0m  [1mSELECT "flights".* FROM "flights"[0m
+  Rendered flights/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 22ms (Views: 5.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/flights.css?body=1" for 127.0.0.1 at 2014-06-16 03:10:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-16 03:10:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-16 03:10:00 -0400
+
+
+Started GET "/assets/flights.js?body=1" for 127.0.0.1 at 2014-06-16 03:10:01 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-16 03:10:01 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-16 03:10:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-16 03:10:01 -0400

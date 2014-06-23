@@ -1,0 +1,1 @@
+This repo is a showcase of my TheOdinProject.com work.

@@ -1,0 +1,681 @@
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+SQLite3::SQLException: no such table: users: SELECT "users".* FROM "users"
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140401191500)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140401191500"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (382.9ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Tue, 01 Apr 2014 19:24:46 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 19:24:46 UTC +00:00], ["username", "jack32"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140401192539)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140401192539"]]
+  [1m[36m (12.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "posts" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)  [["comment", "Yolo Molo Tolo"], ["created_at", Tue, 01 Apr 2014 19:30:01 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 19:30:01 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: posts.user_id: SELECT "posts".* FROM "posts"  WHERE "posts"."user_id" = ?
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: posts.user_id: SELECT "posts".* FROM "posts"  WHERE "posts"."user_id" = ?
+  [1m[36mUser Load (8.0ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: posts.user_id: SELECT "posts".* FROM "posts"  WHERE "posts"."user_id" = ?
+  [1m[36mActiveRecord::SchemaMigration Load (17.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreatePosts (20140401192539)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (18.0ms)[0m  DROP TABLE "posts"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20140401192539'[0m
+  [1m[35m (6.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+SQLite3::SQLException: no such table: posts: SELECT "posts".* FROM "posts"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140401200145)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "User_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_posts_on_User_id" ON "posts" ("User_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140401200145"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "posts" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["comment", "Ylo molo tolo"], ["created_at", Tue, 01 Apr 2014 20:08:35 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:08:35 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["User_id", 1], ["comment", "This took way too long"], ["created_at", Tue, 01 Apr 2014 20:13:03 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:13:03 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 1]]
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Tue, 01 Apr 2014 20:35:57 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:35:57 UTC +00:00], ["username", "jack32"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("comment", "created_at", "updated_at") VALUES (?, ?, ?)  [["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 20:36:11 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:36:11 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["User_id", 1], ["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 20:36:43 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:36:43 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 2]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (31.2ms)[0m  DELETE FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["User_id", 2], ["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 20:37:17 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 20:37:17 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 2]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [[nil, 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (1.8ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [[nil, 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "User_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE INDEX "index_posts_on_User_id" ON "posts" ("User_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401200145')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401191500')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (16.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Tue, 01 Apr 2014 23:09:05 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:09:05 UTC +00:00], ["username", "jack32"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (37.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "User_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_posts_on_User_id" ON "posts" ("User_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401200145')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401191500')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Tue, 01 Apr 2014 23:12:31 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:12:31 UTC +00:00], ["username", "jack32"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPosts (20140401231427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+SQLite3::SQLException: duplicate column name: user_id: ALTER TABLE "posts" ADD "user_id" integer
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["User_id", 1], ["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 23:19:12 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:19:12 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "User_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_posts_on_User_id" ON "posts" ("User_id")
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401200145')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401191500')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (32.8ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Tue, 01 Apr 2014 23:57:54 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:57:54 UTC +00:00], ["username", "hohoho"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["User_id", 1], ["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 23:58:22 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:58:22 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("User_id", "comment", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["User_id", 2], ["comment", "yolo molo tolo"], ["created_at", Tue, 01 Apr 2014 23:58:26 UTC +00:00], ["updated_at", Tue, 01 Apr 2014 23:58:26 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPosts (20140401231427)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+SQLite3::SQLException: duplicate column name: user_id: ALTER TABLE "posts" ADD "user_id" integer
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPosts (20140401231427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+SQLite3::SQLException: duplicate column name: user_id: ALTER TABLE "posts" ADD "user_id" integer
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameUserIdToUserId (20140402001150)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TEMPORARY TABLE "aposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "tindex_aposts_on_User_id" ON "aposts" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "posts"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aposts" ("id","comment","user_id","created_at","updated_at") VALUES (1, 'yolo molo tolo', 1, '2014-04-01 23:58:22.817902', '2014-04-01 23:58:22.817902')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aposts" ("id","comment","user_id","created_at","updated_at") VALUES (2, 'yolo molo tolo', 2, '2014-04-01 23:58:26.385724', '2014-04-01 23:58:26.385724')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "posts"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_posts_on_User_id" ON "posts" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aposts"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "posts" ("id","comment","user_id","created_at","updated_at") VALUES (1, 'yolo molo tolo', 1, '2014-04-01 23:58:22.817902', '2014-04-01 23:58:22.817902')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "posts" ("id","comment","user_id","created_at","updated_at") VALUES (2, 'yolo molo tolo', 2, '2014-04-01 23:58:26.385724', '2014-04-01 23:58:26.385724')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "aposts"
+  [1m[36m (0.3ms)[0m  [1mDROP INDEX "index_posts_on_User_id"[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140402001150"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (3.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPosts (20140401231427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+SQLite3::SQLException: duplicate column name: user_id: ALTER TABLE "posts" ADD "user_id" integer
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20140402060925)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140402060925"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (29.7ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (36.5ms)[0m  INSERT INTO "comments" ("created_at", "note", "updated_at") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:13:34 UTC +00:00], ["note", "hello neighbor"], ["updated_at", Wed, 02 Apr 2014 06:13:34 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mSQL (2.2ms)[0m  DELETE FROM "comments"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:22:42 UTC +00:00], ["note", "hello neighbor"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 06:22:42 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:23:29 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:23:29 UTC +00:00], ["username", "wewewe"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 06:25:25 UTC +00:00], ["note", "yeyeye"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 06:25:25 UTC +00:00], ["user_id", 2]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (2.1ms)[0m  DELETE FROM "posts"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mSQL (2.5ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("comment", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["comment", "link to cat pictures"], ["created_at", Wed, 02 Apr 2014 06:27:25 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:27:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:29:40 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:29:40 UTC +00:00], ["username", "second"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 06:30:34 UTC +00:00], ["note", "second says shit"], ["post_id", 3], ["updated_at", Wed, 02 Apr 2014 06:30:34 UTC +00:00], ["user_id", 3]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?  [["user_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (22.4ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 06:41:29 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:41:29 UTC +00:00], ["username", "first11"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("comment", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["comment", "first11 find ferrets"], ["created_at", Wed, 02 Apr 2014 06:42:05 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:42:05 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 06:45:42 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:45:42 UTC +00:00], ["username", "second"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:46:33 UTC +00:00], ["note", "second says shit"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 06:46:33 UTC +00:00], ["user_id", 2]]
+  [1m[36m (113.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (13.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:54:03 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:54:03 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 06:54:25 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 06:54:25 UTC +00:00], ["username", "second"]]
+  [1m[35m (31.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Apr 2014 06:54:26 UTC +00:00], ["note", "second says shit"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 06:54:26 UTC +00:00], ["user_id", 2]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.3ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:01:11 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:01:11 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 07:01:17 UTC +00:00], ["note", "second says shit"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 07:01:17 UTC +00:00], ["user_id", 2]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140401191500)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140401191500"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to RenameUserIdToUserId (20140402001150)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "users"
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402060925')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:03:42 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:03:42 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (13.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "posts"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (2.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  DROP TABLE "users"
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402001150')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140402065754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "User" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "User" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140401200145)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "posts" already exists: CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "posts"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "users"
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401200145')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameCommentToTitle (20140402070732)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "aposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "tindex_aposts_on_user_id" ON "aposts" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "posts"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "posts"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aposts"[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "aposts"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140402070732"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402070732')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:16:15 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:16:15 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402070732')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:17:08 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:17:08 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("created_at", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 07:17:08 UTC +00:00], ["title", "first11 find ferrets"], ["updated_at", Wed, 02 Apr 2014 07:17:08 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:17:13 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:17:13 UTC +00:00], ["username", "first11"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("created_at", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 07:17:14 UTC +00:00], ["title", "first11 find ferrets"], ["updated_at", Wed, 02 Apr 2014 07:17:14 UTC +00:00], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "username") VALUES (?, ?, ?)  [["created_at", Wed, 02 Apr 2014 07:17:25 UTC +00:00], ["updated_at", Wed, 02 Apr 2014 07:17:25 UTC +00:00], ["username", "second"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "comments" ("created_at", "note", "post_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Apr 2014 07:17:25 UTC +00:00], ["note", "second says shit"], ["post_id", 1], ["updated_at", Wed, 02 Apr 2014 07:17:25 UTC +00:00], ["user_id", 2]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" ASC LIMIT 1[0m  [["post_id", 1]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? ORDER BY "posts"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (10.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (1) LIMIT 1[0m
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402070732')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note" varchar(255), "user_id" integer, "post_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402070732')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140401191500')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140401200145')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402001150')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140402060925')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

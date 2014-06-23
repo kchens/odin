@@ -1,0 +1,9 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "airports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codename" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "flights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "from_airport_id" integer, "to_airport_id" integer, "departure" datetime, "duration" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140614013721')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140614012858')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
