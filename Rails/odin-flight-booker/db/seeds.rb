@@ -13,7 +13,7 @@ Airport.create(:codename => "PVD")
 
 
 Flight.delete_all
-Flight.create(from_airport_id: "1", to_airport_id: "2", departure_date: Time.now, duration: "10")
-Flight.create(from_airport_id: "3", to_airport_id: "4", departure_date: Time.now, duration: "5")
-Flight.create(from_airport_id: "2", to_airport_id: "1", departure_date: Time.now+3, duration: "10")
-Flight.create(from_airport_id: "4", to_airport_id: "3", departure_date: Time.now+3, duration: "5")
+Flight.create(from_airport_id: "1", to_airport_id: "2", date: Time.now, duration: "10")
+Flight.create(from_airport_id: "3", to_airport_id: "4", date: Time.now, duration: "5")
+Flight.create(from_airport_id: "2", to_airport_id: "1", date: Time.now+3, duration: "10")
+Flight.create(from_airport_id: "4", to_airport_id: "3", date: Time.now+3, duration: "5")

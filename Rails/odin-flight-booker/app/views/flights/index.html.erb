@@ -3,10 +3,14 @@
 
 <%= form_tag(root_path, :method => "get") do %> <!-- after form is submitted, the customer returns to the root_path -->
   From: <%= select_tag :from_airport, options_for_select(@airports, params[:from_airport]) %>
-  To: <%= select_tag :to_airport, options_for_select(@airports, params[:to_airport]) %>
+  To:   <%= select_tag :to_airport,   options_for_select(@airports, params[:to_airport]) %>
   Passengers: <%= select_tag :num_passengers, options_for_select(@num_passengers, params[:num_passengers]) %>
-  Date: <%= select_tag :departure_date, options_for_select(@dates, params[:departure_date]) %>
+  Date: <%= select_tag :date, options_for_select(@dates, params[:date]) %>
 
   <%= submit_tag "Search", :name => nil %>
 
+<% end %>
+
+<% if params[:search] && !@flights.empty? %>
+  <%= render :searches %>
 <% end %>

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614013721) do
+ActiveRecord::Schema.define(version: 20140625053912) do
 
   create_table "airports", force: true do |t|
-    t.string   "codename"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "flights", force: true do |t|
+    t.datetime "date"
     t.integer  "from_airport_id"
     t.integer  "to_airport_id"
-    t.datetime "date"
     t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
