@@ -1,0 +1,23 @@
+<%= form_for(@kitten) do |f| %>
+  <% if @kitten.errors.any? %>
+    Fix <%= pluralize(@kitten.errors.count, "error") %> to enter this kitten.
+
+    <% @kitten.errors.full_messages.each do |e| %>
+      <%= e %>
+    <%end %>
+  <% end %>
+  
+  <div>
+    <%= f.text_field   :name,     placeholder: "Name",    required: true %>
+  </div>
+  <div>
+    <%= f.number_field :age,      placeholder: "Age",     required: true %>
+  </div>
+  <div>
+    <%= f.number_field :cuteness, placeholder: "Cuteness",required: true %>
+  </div>
+  <div>
+    <%= f.number_field :softness, placeholder: "Softness",required: true %>
+  </div>
+    <%= f.submit "Enter kitten" %>
+<% end %>

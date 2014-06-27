@@ -1,0 +1,31 @@
+<h1>Kittens#index</h1>
+<p>Find me in app/views/kittens/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Cuteness</th>
+      <th>Softness</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kittens.each do |k| %>
+      <tr>
+        <td><%= k.name %></td> 
+        <td><%= k.age %></td> 
+        <td><%= k.cuteness %></td> 
+        <td><%= k.softness %></td> 
+        <td><%= link_to "Details", k %></td>
+        <td><%= link_to "Edit", edit_kitten_path(k) %></td>
+        <td><%= link_to "Delete", k, method: :delete, 
+                                        confirm: "Are you sure?" %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<td><%= link_to "Enter new kitten", new_kitten_path %></td>

@@ -1,0 +1,23 @@
+<h1>Kittens#show</h1>
+<p>Find me in app/views/kittens/show.html.erb</p>
+
+<p>
+  1. You're cute Kitten is called <strong><%= @kitten.name %></strong>.
+</p>
+
+<p>
+  2. It's <strong><%= @kitten.age %></strong> years old.
+</p>
+
+<p>
+  3. It's <strong><%= @kitten.cuteness %>x</strong> cuter than the normal kitten.
+</p>
+
+<p>
+  4. It's <strong><%= @kitten.softness %>x</strong> soft.
+</p>
+
+<%= link_to "Delete kitten", @kitten, method: :delete, confirm: "Are you sure?" %>
+
+<br>
+  <%= link_to "Back", root_path %>
