@@ -1,0 +1,11 @@
+<%= form_tag flights_path, method: "get" do %>
+  <%= hidden_field_tag :search%>
+  <!-- options_for_select puts the @airport's first element as the text value, second element
+          is the real value saved  -->
+  <%= select_tag :from, options_for_select(@airports), prompt: "From" %>
+  <%= select_tag :to, options_for_select(@airports), prompt: "To" %>
+  <%= select_tag :date, options_for_select(@dates), prompt: "Date" %>
+  <%= select_tag :passenger, options_for_select(@passengers), prompt: "Passengers" %>
+
+  <%= submit_tag "Search Flights", name: nil %> 
+<% end %>

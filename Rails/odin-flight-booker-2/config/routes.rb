@@ -2,6 +2,8 @@ OdinFlightBooker2::Application.routes.draw do
   root "flights#index"
 
   get "flights/" => 'flights#index'
+
+  resources :bookings
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
