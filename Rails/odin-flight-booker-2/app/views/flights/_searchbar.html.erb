@@ -5,7 +5,6 @@
   <%= select_tag :from, options_for_select(@airports), prompt: "From" %>
   <%= select_tag :to, options_for_select(@airports), prompt: "To" %>
   <%= select_tag :date, options_for_select(@dates), prompt: "Date" %>
-  <%= select_tag :passenger, options_for_select(@passengers), prompt: "Passengers" %>
-
+  <%= select_tag :passengers, options_for_select(@passengers), prompt: "Passengers" %>
   <%= submit_tag "Search Flights", name: nil %> 
 <% end %>

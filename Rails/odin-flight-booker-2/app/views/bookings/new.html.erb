@@ -1,0 +1,18 @@
+<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+
+<strong><%= pluralize(params[:passengers],'passenger') %></strong> will be flying from <strong><%= @flight.from_airport.code %></strong> to <strong><%= @flight.to_airport.code %></strong> on <strong><%= @flight.date.strftime("%m/%d/%y") %></strong> aboard Flight <strong>#<%= @flight.id %></strong>.
+
+Fill in the passenger information below.
+
+
+<%= form_for(@booking) do |b| %>
+  <%= b.hidden_field :flight_id %>    
+    <%= b.fields_for :passengers do |passenger_fields| %>
+      Name: <%= passenger_fields.text_field :name %>
+      Email: <%= passenger_fields.text_field :email %>
+      <br>
+    <% end %>
+  <%= b.submit "Book Flight" %>
+  
+<% end %>

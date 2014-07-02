@@ -2,6 +2,9 @@ class Flight < ActiveRecord::Base
   belongs_to :from_airport, class_name: "Airport"
   belongs_to :to_airport, class_name: "Airport"
 
+  has_many :bookings, foreign_key: :flight_id
+  has_many :passengers, through: :bookings
+
   #in order for the datetime to be called correctly, we need to have an array like so
   def self.flight_dates
     all.map { |f| [f.formatted_date, f.date.to_date] }.uniq

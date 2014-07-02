@@ -1,0 +1,30 @@
+<h1>Bookings#show</h1>
+<p>Find me in app/views/bookings/show.html.erb</p>
+
+The following passengers are booked on the flight below:
+<br>
+<br>
+<% @booking.passengers.each do |passenger| %>
+  <%= "#{passenger.name}" %>
+  <%= "#{passenger.email}" %>
+<% end %>
+<br>
+<table>
+  <thead>
+    <th>Flight Number</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Date</th>
+    <th>Flight Duration</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @booking.flight.id %></td>
+      <td><%= @booking.flight.from_airport.code %></td>
+      <td><%= @booking.flight.to_airport.code %></td>
+      <td><%= @booking.flight.date.strftime("%m/%d/%y") %></td>
+      <td><%= @booking.flight.duration %></td>
+    </tr>
+  </tbody>
+
+</table>
