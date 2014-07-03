@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Thank you for your flight purchase!</title>
+  <meta content = "text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+  <h1>Thank you <%= @passenger.name %> for your flight purchase</h1>
+  <p>
+    You have successfully booked your flight. Your confirmation # is <%= @booking.id %>
+  </p>
+
+  <p>
+    Flight #:   <%= @booking.flight.id %>
+    From:       <%= @booking.flight.from_airport.code %>
+    To:         <%= @booking.flight.to_airport.code %>
+    On:         <%= @booking.flight.date.strftime("%m/%d/%Y") %>
+    Duration:   <%= @booking.flight.duration %>
+  </p>
+
+  <p>
+    For passengers:
+    <ol>
+      <% @booking.passengers.each do |passenger| %>
+      <li><%="#{passenger.name} - #{passenger.email}"%></li>
+      <% end %>
+    </ol>
+  </p>
+
+  <p>
+    Have a great trip! Whenever you fly, think of <%= link_to "us", @url %>
+  </p>
+</body>
+</html>

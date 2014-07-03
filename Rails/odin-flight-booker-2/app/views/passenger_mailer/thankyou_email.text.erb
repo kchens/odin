@@ -1,0 +1,18 @@
+Thank you for your flight purchase!
+----------------------------------------
+We appreciate your business, <%= @passenger.name %>.
+
+You have successfully booked your flight. Your confirmation # is <%= @booking.id %>
+
+Flight #:   <%= @booking.flight.id %>
+From:       <%= @booking.flight.from_airport.code %>
+To:         <%= @booking.flight.to_airport.code %>
+On:         <%= @booking.flight.date.strftime("%m/%d/%Y") %>
+Duration:   <%= @booking.flight.duration %>
+
+For passengers:
+  <% @booking.passengers.each do |passenger| %>
+    <%="#{passenger.name} #{passenger.email}"%>
+  <% end %>
+
+Have a great trip! Whenever you fly, think of <%= link_to "us", @url %>
