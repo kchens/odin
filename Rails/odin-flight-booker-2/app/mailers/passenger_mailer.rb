@@ -8,6 +8,6 @@ class PassengerMailer < ActionMailer::Base
 
 
     email_with_name = "#{@passenger.name} <#{@passenger.email}>"
-    mail(to: @passenger.email, subject: "Thank you for your flight purchase")
+    mail(to: email_with_name, subject: "Thank you for your flight purchase")
   end
 end
