@@ -11,26 +11,42 @@
 
 </head>
 
-<header>
+<header id="masthead">
   <nav>
     <ul>
-      <li><img src="" id="you_logo"></li>
-      <li><button><i class="fa fa-bars"></i></button></li>
-      <li><input></li>
-      <li><button><i class="fa fa-search"></i></button></li>
-      <li><button>Upload</button></li>
-      <li><button><i class="fa fa-bell-o"></i></button></li>
-      <li><button><i class="fa fa-male"></i></button></li>
+      <div id="youtube_logo"><img src="imgs/youtube.gif"></div>
+      <div class="nav-left">
+        <li><button id="three-bars"><i class="fa fa-bars fa-lg"></i></button></li>
+      </div>
+      <div class="nav-center">
+        <li>
+          <form action="somewhere" method="POST">
+            <input type="text" id="searchbar">
+            <div><button><i class="fa fa-search fa-lg"></i></button></div>
+          </form>
+        </li>
+      </div>
+      <div class="nav-right">
+        <li><button id="upload">Upload</button></li>
+        <li><button><i class="fa fa-bell-o fa-2x"></i></button></li>
+        <li><button><i class="fa fa-male fa-2x"></i></button></li>
+      </div>
     </ul>
   </nav>
 </header>
 
 <body>
-  <div class="left">
-    <iframe width="560" height="315" src="http://www.youtube.com/embed/nfWlot6h_JM?rel=0" frameborder="0" allowfullscreen></iframe>
+  <iframe src="http://www.youtube.com/embed/WA4iX5D9Z64?rel=0" frameborder="0" allowfullscreen id="tswift_vid"></iframe>
+
+  <div id="scroll_vids">
+    <a href="#">
+      <div class="thumb_vids">
+        <span class="thumb_img"><img src="imgs/tswift_thumb.gif"></span>
+        <span class="thumb_title">Mix - Taylor Swift - Shake It Off</span>
+        <span class="thumb_cite">by YouTube </span>
+      </div>
+    </a>
   </div>
-
-
 </body>
 
 <footer>

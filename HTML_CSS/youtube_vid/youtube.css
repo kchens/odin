@@ -1,0 +1,206 @@
+html {
+  background-color: #F1F1F1;
+  font-family: arial, sans-serif;
+}
+
+#masthead {
+  position: fixed;
+  width: 100%;
+  display: block;
+  background-color: white;
+}
+
+nav {
+  padding: 0.7% 2%;
+}
+
+nav ul div {
+  display: inline-block;
+}
+
+li  {
+  display: inline-block;
+}
+
+button {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0; /*gets rid of the default blue highlight*/
+}
+
+.fa {
+  color: #555;
+}
+
+/*YouTube logo*/
+
+#youtube_logo {
+  float: left;
+}
+
+/*Three Bars*/
+
+#three-bars {
+  padding: 7px 12px 7px 12px;
+  margin-left: 2%;
+  border: 1px solid #FFF;
+}
+
+#three-bars:hover {
+  background-color: #f8f8f8;
+  border: 1px solid #c6c6c6;
+}
+
+.fa-bars {
+  color: #ccc;
+}
+
+#three-bars:hover .fa-bars {
+  color: #555;
+}
+
+/*Search box*/
+form {
+  border: 1px solid #c6c6c6;
+  height: 29px;
+  line-height: 30px; /*space between the lines, standard is 20px*/
+}
+
+input {
+  width: 550px;
+  padding: 2px 6px;
+  border: 1px solid transparent; /*how can you delete this line, but make sure the input box doesn't shift*/
+  overflow: hidden;
+  font-size: 13px;
+  outline: 0; /*gets rid of blue highlight, usual around search boxes*/
+}
+
+input:hover {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+input:focus {
+  border: 1px solid blue;
+  padding: 5px 6px;
+}
+
+form div {
+  padding: 0;
+  margin: 0;
+  background-color: #f8f8f8;
+  border: 1px solid #c6c6c6;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+form div:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.fa-search {
+  margin: 0 25px;
+  cursor: pointer;
+}
+
+form div:hover .fa-search {
+  color: #000;
+}
+
+/*nav three columns */
+.nav-left {
+  margin-right: 100px;
+}
+
+.nav-right {
+  margin-left: 190px;
+}
+
+/*upper right buttons*/
+
+#upload {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #c6c6c6;
+  font-weight: bold;
+}
+
+.fa-bell-o {
+  padding: 0 23px;
+}
+
+.fa-bell-o:hover {
+  color: #000;
+}
+
+.fa-bell-o:focus {
+  border: 1px solid #c6c6c6;
+}
+
+.fa-male {
+  padding: 2px 7px;
+  background-color: #A0C3FF;
+  color: #4374E0;
+}
+/*BODY*/
+
+body {
+}
+
+#tswift_vid {
+  float: left;
+  width: 640px;
+  height: 390px;
+  margin: 60px 9px 0 120px;
+}
+
+#scroll_vids {
+  float: left;
+  background-color: white;
+  height: 1726px;
+  width: 370px;
+  padding: 15px 15px 15px 0;
+  margin: 60px 1px 0 10px;
+}
+
+#scroll_vids a {
+  text-decoration: none;
+}
+
+#scroll_vids a:hover .thumb_title{
+  color: #167ac6;
+}
+
+.thumb_vids {
+  padding: 0 5px 0 5px;
+  width: 365px;
+  height: 67px;
+  margin-bottom:15px;
+}
+
+.thumb_img {
+  background-color: white;
+  color: white;
+  margin: 0 8px;
+  height: 120px;
+  width: 67px;
+  float: left;
+  /*position: relative;*/
+  /*display: inline-block;*/
+}
+
+.thumb_title {
+  /*display: block;*/
+  color: #333;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.thumb_cite {
+  display: block;
+  color: #999;
+  font-size: 11px;
+}
